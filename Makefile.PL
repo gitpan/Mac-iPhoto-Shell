@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.3 2007/01/20 19:07:08 comdog Exp $
+# $Id: Makefile.PL,v 1.4 2007/01/20 23:10:12 comdog Exp $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";
@@ -16,7 +16,7 @@ MAKE
 
 WriteMakefile(
 	'NAME'      => 'Mac::iPhoto::Shell',
-	'VERSION'   => '0.13',
+	'VERSION'   => '0.14',
 	'LICENSE'	=> 'perl',
 		
 	'PREREQ_PM' => {
@@ -38,4 +38,49 @@ WriteMakefile(
 	clean => { FILES => "*.bak Mac-*" },
 	);
         
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# An auto installer should already have installed Mac::Glue
+{
+require Mac::Glue;
+
+my $iterm = eval { Mac::Glue->new( 'iPhoto' ) };
+
+if( $@ ) 
+	{
+	require Mac::Processes; Mac::Processes->import;
+	
+	my $path = LSFindApplicationForInfo( undef, undef, 'iPhoto.app' );
+
+	if( $path ) 
+		{
+		print <<"HERE";
+To create the Mac::Glue bindings for iTerm you need to run:
+
+	sudo gluemac $iterm_path
+
+HERE
+
+		print "Would you like to run this now? (y/N) ";
+
+		chomp( my $confirm = <> );
+
+		if( lc( $confirm ) eq 'y' ) 
+			{
+			system 'sudo', 'gluemac', $path;
+			$iterm = eval { Mac::Glue->new( 'iPhoto' ) };
+			}
+		}
+	else
+		{
+		die "Could not find iPhoto. Ensure you have it and try again\n";
+		}
+	}
+
+unless( defined $iterm )
+	{
+	die "Cannot continue: Ensure that the iPhoto glue for Mac::Glue is installed\n";
+	}
+
+}
+
 1;
