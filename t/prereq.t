@@ -1,4 +1,4 @@
-# $Id: prereq.t,v 1.1.1.1 2004/02/20 14:36:19 comdog Exp $
+# $Id: prereq.t 1157 2004-02-20 14:36:18Z comdog $
 local $^W = 0;
 
 use Test::More;

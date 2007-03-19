@@ -1,9 +1,13 @@
-# $Id: Changes,v 1.3 2007/01/20 23:11:00 comdog Exp $
+# $Id: Changes 2236 2007-03-19 06:13:23Z comdog $
 0.10 - Fri Feb 20 15:44:55 2004
 	+ initial distribution created with scriptdist
 0.13 - Sat Jan 20 13:09:12 2007
 	* I've converted my iphoto-shell application to a modulino
 	called Mac::iPhoto::Shell
+
+0.15 - Sun Mar 18 23:12:26 2007
+	* Require the latest Mac::Glue, which has the Intel fixes
+	* No need to upgrade if you already have this installed
 
 0.14 - Sat Jan 20 17:10:35 2007
 	* Makefile now checks for and installs iPhoto glue

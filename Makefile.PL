@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.4 2007/01/20 23:10:12 comdog Exp $
+# $Id: Makefile.PL 2235 2007-03-19 06:12:04Z comdog $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";
@@ -16,11 +16,12 @@ MAKE
 
 WriteMakefile(
 	'NAME'      => 'Mac::iPhoto::Shell',
-	'VERSION'   => '0.14',
+	'VERSION'   => '0.15',
 	'LICENSE'	=> 'perl',
-		
+	'AUTHOR'    => 'brian d foy <bdfoy@cpan.org>',
+	
 	'PREREQ_PM' => {
-			Mac::Glue => '0',
+			Mac::Glue => '1.28',
 			},
 
 	'PM'           => {

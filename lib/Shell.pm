@@ -2,7 +2,7 @@
 
 package Mac::iPhoto::Shell;
 
-#$Id: Shell.pm,v 1.1 2007/01/20 19:07:08 comdog Exp $
+#$Id: Shell.pm 2235 2007-03-19 06:12:04Z comdog $
 use strict;
 use warnings;
 
@@ -134,7 +134,8 @@ use Mac::Glue qw(:all);
 use Text::ParseWords;
 use UNIVERSAL qw(isa);
 
-our $VERSION = sprintf "%d.%03d", q$Revision: 1.1 $ =~ m/ (\d+) \. (\d+) /x;
+our $VERSION = 1.15;
+#sprintf "%d.%03d", q$Revision: 2235 $ =~ m/ (\d+) \. (\d+) /x;
 
 my $command = shift @ARGV;
 
