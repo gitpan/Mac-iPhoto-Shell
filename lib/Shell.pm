@@ -1,8 +1,8 @@
-#!/usr/bin/perl
+#!env perl
 
 package Mac::iPhoto::Shell;
 
-#$Id: Shell.pm 2235 2007-03-19 06:12:04Z comdog $
+#$Id: Shell.pm 2502 2008-01-18 10:13:41Z comdog $
 use strict;
 use warnings;
 
@@ -122,7 +122,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2007, brian d foy, All rights reserved.
+Copyright 2004-2008, brian d foy, All rights reserved.
 
 You may use this program under the same terms as Perl itself.
 
@@ -134,8 +134,7 @@ use Mac::Glue qw(:all);
 use Text::ParseWords;
 use UNIVERSAL qw(isa);
 
-our $VERSION = 1.15;
-#sprintf "%d.%03d", q$Revision: 2235 $ =~ m/ (\d+) \. (\d+) /x;
+our $VERSION = '1.16';
 
 my $command = shift @ARGV;
 
@@ -680,3 +679,5 @@ sub _new_photo
 			
 	return $new_photo;
 	}
+
+1;
