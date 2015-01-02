@@ -1,4 +1,15 @@
-$Id: README 2502 2008-01-18 10:13:41Z comdog $
+=====================================================================
+             This module is looking for a maintainer!
+
+No one is maintaining this module, but you can take up its care
+and feeding by requesting CPAN persmissions from modules@perl.org.
+
+This version is assigned to the ADOPTME CPAN user and hosted in
+GitHub:
+
+	https://github.com/CPAN-Adopt-Me/mac-iphoto-shell
+
+=====================================================================
 
 You can install this using in the usual Perl fashion
 
@@ -20,11 +31,11 @@ set up when you installed Perl. That is probably something like
 If you want to read the source before you install it, you can use
 perldoc directly on the module file.
 
-	perldoc  lib/Shell.pm
+	perldoc  lib/Mac/iPhoto/Shell.pm
 
-This module is also in CVS on SourceForge
+This module is also in GitHub
 
-	http://sourceforge.net/projects/brian-d-foy/
+	https://github.com/CPAN-Adopt-Me/mac-iphoto-shell
 
 
 Enjoy,

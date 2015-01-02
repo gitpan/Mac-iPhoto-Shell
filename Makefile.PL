@@ -1,15 +1,27 @@
-# $Id: Makefile.PL 2502 2008-01-18 10:13:41Z comdog $
 use ExtUtils::MakeMaker;
 
 unless( $^O =~ /darwin/ )
 	{
-	warn "OS unsupported! You need a Mac for this module!\n";
-	exit 0;
+	die "OS unsupported! You need a Mac for this module!\n";
 	}
 
-require 5.006;
+print <<'HERE';
+=====================================================================
+             This module is looking for a maintainer!
 
-eval "use Test::Manifest 1.14";
+No one is maintaining this module, but you can take up its care
+and feeding by requesting CPAN persmissions from modules@perl.org.
+
+This version is assigned to the ADOPTME CPAN user and hosted in
+GitHub:
+
+	https://github.com/CPAN-Adopt-Me/mac-iphoto-shell
+
+=====================================================================
+HERE
+
+
+require 5.006;
 
 sub MY::postamble {
 	<<'MAKE';
@@ -30,19 +42,18 @@ WriteMakefile(
 	'AUTHOR'    => 'brian d foy <bdfoy@cpan.org>',
 
 	'PREREQ_PM' => {
-			Mac::Glue => '1.28',
+		Mac::Glue => '1.28',
+		},
+
+	'META_MERGE' => {
+		'meta-spec' => { version => 2 },
+		resources => {
+			repository => {
+				type => 'git',
+				url  => 'https://github.com/CPAN-Adopt-Me/mac-iphoto-shell',
+				web  => 'https://github.com/CPAN-Adopt-Me/mac-iphoto-shell',
+				},
 			},
-
-	'PM'           => {
-		'lib/Shell.pm'         => '$(INST_LIBDIR)/Shell.pm',
-		},
-
-	'MAN3PODS'  => {
-		'lib/Shell.pm' => "\$(INST_MAN3DIR)/Mac::iPhoto::Shell.1",
-		},
-
-	'MAN1PODS'  => {
-		'lib/Shell.pm' => "\$(INST_MAN1DIR)/iphoto_shell.1",
 		},
 
 	clean => { FILES => "*.bak Mac-*" },
